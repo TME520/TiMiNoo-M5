@@ -1,5 +1,5 @@
-# TiMiNoo Arduboy
-Cute 1 bit VPet for Arduboy - Feed, cuddle, clean and educate your own unique cat.
+# TiMiNoo M5
+Cute 1 bit VPet for M5 - Feed, cuddle, clean and educate your own unique cat.
 
 3 mini games, 7 food types, friends visits and presents, all on the mighty Arduboy.
 
