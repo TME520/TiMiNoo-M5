@@ -850,33 +850,33 @@ void loop() {
           break;
         case 1:
           // Eat food
-          arduboy.setCursor(0, 10);
+          M5.Lcd.setCursor(0, 10);
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           switch (selectedFood) {
             case 1:
               M5.Lcd.drawXBitmap(50, 28, strawberry_28x28, 0);
-              arduboy.print(F("  Yummy  strawberry  "));
+              M5.Lcd.print("  Yummy  strawberry  "));
               break;
             case 2:
               M5.Lcd.drawXBitmap(50, 28, grape_28x28, 0);
-              arduboy.print(F("    Fresh  grapes    "));
+              M5.Lcd.print("    Fresh  grapes    "));
               break;
             case 3:
               M5.Lcd.drawXBitmap(50, 28, milk_28x28, 0);
-              arduboy.print(F("     Farm  milk      "));
+              M5.Lcd.print("     Farm  milk      "));
               break;
             case 4:
               M5.Lcd.drawXBitmap(50, 28, orange_28x28, 0);
-              arduboy.print(F("    Juicy  orange    "));
+              M5.Lcd.print("    Juicy  orange    "));
               break;
             case 5:
               M5.Lcd.drawXBitmap(50, 28, apple_28x28, 0);
-              arduboy.print(F("    Tasty  apple     "));
+              M5.Lcd.print("    Tasty  apple     "));
               break;
             case 6:
               M5.Lcd.drawXBitmap(50, 28, ghost_28x28, 0);
-              arduboy.print(F("      No  food       "));
+              M5.Lcd.print("      No  food       "));
               break;
           }
           generalCounter += 1;
@@ -894,8 +894,8 @@ void loop() {
         case 2:
           // Yum
           if (selectedFood != 6) {
-            arduboy.setCursor(0, 55);
-            arduboy.print(F("        Yum !        "));
+            M5.Lcd.setCursor(0, 55);
+            M5.Lcd.print("        Yum !        "));
           }
           M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
           switch (selectedFood) {
@@ -969,8 +969,8 @@ void loop() {
           break;
         case 1:
           // Snail says hello
-          arduboy.setCursor(0, 55);
-          arduboy.print(F("           Hi! >     "));
+          M5.Lcd.setCursor(0, 55);
+          M5.Lcd.print("           Hi! >     "));
           M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
           M5.Lcd.drawXBitmap(97, 40, koko_le_snail_26x22, 0);
           generalCounter += 1;
@@ -1027,8 +1027,8 @@ void loop() {
         case 4:
           // Score
           M5.Lcd.drawXBitmap(51, 28, study_26x28, 0);
-          arduboy.setCursor(0, 10);
-          arduboy.print(F("    + 1  Education   "));
+          M5.Lcd.setCursor(0, 10);
+          M5.Lcd.print("    + 1  Education   "));
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           generalCounter += 1;
@@ -1104,8 +1104,8 @@ void loop() {
           arduboy.drawFastHLine(0, 63, generalCounter, WHITE);
           break;
         case 1:
-          arduboy.setCursor(0, 10);
-          arduboy.print(F("      All clean yay !"));
+          M5.Lcd.setCursor(0, 10);
+          M5.Lcd.print("      All clean yay !"));
           M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
           M5.Lcd.drawXBitmap(69, 50, cuddle_heart_11x10, 0);
           M5.Lcd.drawXBitmap(81, 50, cuddle_heart_11x10, 0);
@@ -1169,49 +1169,49 @@ void loop() {
         }
       } else if (currentSequence == 1) {
         // See the result
-        arduboy.setCursor(0, 10);
+        M5.Lcd.setCursor(0, 10);
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         switch (gamePick) {
           case 0:
             // Ghost
             M5.Lcd.drawXBitmap(50, 28, ghost_28x28, 0);
-            arduboy.print(F("   Nothing, boo !    "));
+            M5.Lcd.print("   Nothing, boo !    "));
             break;
           case 1:
             // Bar
             M5.Lcd.drawXBitmap(50, 28, bar_28x28, 0);
-            arduboy.print(F("     + 1 of all!     "));
+            M5.Lcd.print("     + 1 of all!     "));
             break;
           case 2:
             // Strawberry
             M5.Lcd.drawXBitmap(50, 28, strawberry_28x28, 0);
-            arduboy.print(F("   + 1  strawberry   "));
+            M5.Lcd.print("   + 1  strawberry   "));
             break;
           case 3:
             // Apple
             M5.Lcd.drawXBitmap(50, 28, apple_28x28, 0);
-            arduboy.print(F("     + 1  apple      "));
+            M5.Lcd.print("     + 1  apple      "));
             break;
           case 4:
             // Grape
             M5.Lcd.drawXBitmap(50, 28, grape_28x28, 0);
-            arduboy.print(F("     + 1  grape      "));
+            M5.Lcd.print("     + 1  grape      "));
             break;
           case 5:
             // Milk
             M5.Lcd.drawXBitmap(50, 28, milk_28x28, 0);
-            arduboy.print(F("      + 1  milk      "));
+            M5.Lcd.print("      + 1  milk      "));
             break;
           case 6:
             // Orange
             M5.Lcd.drawXBitmap(50, 28, orange_28x28, 0);
-            arduboy.print(F("     + 1  orange     "));
+            M5.Lcd.print("     + 1  orange     "));
             break;
           case 7:
             // Replay + Double
             M5.Lcd.drawXBitmap(50, 28, dollar_28x28, 0);
-            arduboy.print(F("Double score + Replay"));
+            M5.Lcd.print("Double score + Replay"));
             break;
         }
         generalCounter += 1;
@@ -1362,7 +1362,7 @@ void loop() {
           break;
         case 4:
           // Bonus
-          arduboy.setCursor(0, 10);
+          M5.Lcd.setCursor(0, 10);
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           switch (randomVisit) {
@@ -1372,23 +1372,23 @@ void loop() {
               } else {
                 M5.Lcd.drawXBitmap(50, 28, coco_cake_28x32, 0);
               }
-              arduboy.print(F("        Yum !        "));
+              M5.Lcd.print("        Yum !        "));
               break;
             case 3001 ... 3050:
               // Strawberry
               tinyfont.print(F("Thank you <3"));
-              arduboy.print(F("   - 1 Strawberry    "));
+              M5.Lcd.print("   - 1 Strawberry    "));
               M5.Lcd.drawXBitmap(49, 28, strawberry_28x28, 0);
               break;
             case 3051 ... 3100:
               // Orange
               tinyfont.print(F("Thanks a lot!"));
-              arduboy.print(F("     - 1 Orange      "));
+              M5.Lcd.print("     - 1 Orange      "));
               M5.Lcd.drawXBitmap(49, 28, orange_28x28, 0);
               break;
             case 3101 ... 3136:
               // Cuddle
-              arduboy.print(F("  You hug ChiChi  "));
+              M5.Lcd.print("  You hug ChiChi  "));
               M5.Lcd.drawXBitmap(40, 28, cat_sitting_001_48x48, 0);
               break;
           }
@@ -1419,13 +1419,13 @@ void loop() {
           }
           break;
         case 6:
-          arduboy.setCursor(0, 10);
+          M5.Lcd.setCursor(0, 10);
           switch (randomVisit) {
             case 0 ... 999:
-              arduboy.print(F("    + 10000 points   "));
+              M5.Lcd.print("    + 10000 points   "));
               break;
             case 3001 ... 3136:
-              arduboy.print(F("    + 5000 points    "));
+              M5.Lcd.print("    + 5000 points    "));
               break;
           }
           arduboy.drawFastHLine(0, 8, 127, WHITE);
@@ -1449,13 +1449,13 @@ void loop() {
           break;
         case 7:
           // ChiChi is sad
-          arduboy.setCursor(0, 10);
+          M5.Lcd.setCursor(0, 10);
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           M5.Lcd.drawXBitmap(96, 28, chichi_30x28, 0);
           tinyfont.setCursor(40, 59);
           tinyfont.print(F("Maybe next time..."));
-          arduboy.print(F("   You have none...  "));
+          M5.Lcd.print("   You have none...  "));
           generalCounter += 1;
           if (generalCounter>24) {
             currentSequence = 0;
@@ -1470,8 +1470,8 @@ void loop() {
       if (currentSequence == 0) {
         // Display random character (Koko, Cindy, ChiChi or Ghost)
         checkButton();
-        arduboy.setCursor(0, 10);
-        arduboy.print(F("[B]  Kiss ~ Cuss  [A]"));
+        M5.Lcd.setCursor(0, 10);
+        M5.Lcd.print("[B]  Kiss ~ Cuss  [A]"));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         checkButton();
@@ -1544,8 +1544,8 @@ void loop() {
       } else if (currentSequence == 2) {
         // Unhappy 2
         M5.Lcd.drawXBitmap(51, 28, cuss_28x28, 0);
-        arduboy.setCursor(0, 10);
-        arduboy.print(F("      No points      "));
+        M5.Lcd.setCursor(0, 10);
+        M5.Lcd.print("      No points      "));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         generalCounter += 1;
@@ -1605,8 +1605,8 @@ void loop() {
       } else if (currentSequence == 4) {
         // Happy 2
         M5.Lcd.drawXBitmap(51, 28, kiss_28x28, 0);
-        arduboy.setCursor(0, 10);
-        arduboy.print(F("    + 1000 points    "));
+        M5.Lcd.setCursor(0, 10);
+        M5.Lcd.print("    + 1000 points    "));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         generalCounter += 1;
@@ -1622,8 +1622,8 @@ void loop() {
           randomFoodType = random(0, 4);
         }
       } else if (currentSequence == 5) {
-        arduboy.setCursor(0, 10);
-        arduboy.print(F(" Thanks for playing! "));
+        M5.Lcd.setCursor(0, 10);
+        M5.Lcd.print(" Thanks for playing! "));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         generalCounter += 1;
@@ -1636,31 +1636,31 @@ void loop() {
       }
       break;
     case 10:
-      arduboy.setCursor(0, 10);
+      M5.Lcd.setCursor(0, 10);
       switch (currentSequence) {
         case 0:
           // Pizza
-          arduboy.print(F("  > Feed  TiMiNoo <  "));
+          M5.Lcd.print("  > Feed  TiMiNoo <  "));
           M5.Lcd.drawXBitmap(51, 28, pizza_26x28, 0);
           break;
         case 1:
           // Gamepad
-          arduboy.print(F("> Play with TiMiNoo <"));
+          M5.Lcd.print("> Play with TiMiNoo <"));
           M5.Lcd.drawXBitmap(48, 28, play_32x20, 0);
           break;
         case 2:
           // Bubbles
-          arduboy.print(F("  > Wash  TiMiNoo <  "));
+          M5.Lcd.print("  > Wash  TiMiNoo <  "));
           M5.Lcd.drawXBitmap(49, 28, bubbles_30x30, 0);
           break;
         case 3:
           // Heart
-          arduboy.print(F(" > Cuddle  TiMiNoo < "));
+          M5.Lcd.print(" > Cuddle  TiMiNoo < "));
           M5.Lcd.drawXBitmap(52, 28, cuddle_24x24, 0);
           break;
         case 4:
           // Book
-          arduboy.print(F("  > Train TiMiNoo <  "));
+          M5.Lcd.print("  > Train TiMiNoo <  "));
           M5.Lcd.drawXBitmap(51, 28, study_26x28, 0);
           break;
       }
@@ -1675,47 +1675,47 @@ void loop() {
       break;
     case 11:
       // Statistics screen
-      arduboy.setCursor(0, 10);
+      M5.Lcd.setCursor(0, 10);
       switch (currentSequence) {
         case 0:
-          arduboy.print(F("|||     Hunger    |||"));
+          M5.Lcd.print("|||     Hunger    |||"));
           gamePick = catHunger;
           M5.Lcd.drawXBitmap(4, 28, pizza_26x28, 0);
           break;
         case 1:
-          arduboy.print(F("|||     Hygiene   |||"));
+          M5.Lcd.print("|||     Hygiene   |||"));
           gamePick = catHygiene;
           M5.Lcd.drawXBitmap(4, 28, bubbles_30x30, 0);
           break;
         case 2:
-          arduboy.print(F("|||    Education  |||"));
+          M5.Lcd.print("|||    Education  |||"));
           gamePick = catEducation;
           M5.Lcd.drawXBitmap(4, 28, study_26x28, 0);
           break;
         case 3:
-          arduboy.print(F("|||     Morale    |||"));
+          M5.Lcd.print("|||     Morale    |||"));
           gamePick = catMorale;
           M5.Lcd.drawXBitmap(4, 30, cuddle_24x24, 0);
           break;
         case 4:
-          arduboy.print(F("|||      Fun      |||"));
+          M5.Lcd.print("|||      Fun      |||"));
           gamePick = catEntertainment;
           M5.Lcd.drawXBitmap(4, 32, play_32x20, 0);
           break;
       }
-      arduboy.setCursor(64, 40);
+      M5.Lcd.setCursor(64, 40);
       switch (gamePick) {
         case 0:
-          arduboy.print(F("---"));
+          M5.Lcd.print("---"));
           break;
         case 1:
-          arduboy.print(F("[]"));
+          M5.Lcd.print("[]"));
           break;
         case 2:
-          arduboy.print(F("[][]"));
+          M5.Lcd.print("[][]"));
           break;
         case 3:
-          arduboy.print(F("[][][]"));
+          M5.Lcd.print("[][][]"));
           break;
       }
       arduboy.drawFastHLine(0, 8, 127, WHITE);
@@ -1730,8 +1730,8 @@ void loop() {
     case 99:
       // Show version
       M5.Lcd.drawXBitmap(56, 35, timinoo_logo_128x64, timinoo_logo_128x64_width, timinoo_logo_128x64_height, TFT_WHITE);
-      arduboy.setCursor(0, 57);
-      arduboy.print(F("        v1.2.12      "));
+      M5.Lcd.setCursor(0, 0);
+      M5.Lcd.print("\n\n\n\n\n\n\n       v1.2.12      ");
       generalCounter += 1;
       if (generalCounter>24) {
         gameMode = 0;

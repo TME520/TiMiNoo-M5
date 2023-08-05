@@ -123,10 +123,13 @@ const unsigned char PROGMEM door_28x30_bits[] = {
   启动或者复位后，即会开始执行setup()函数中的程序，该部分只会执行一次。 */
 void setup() {
     M5.begin();  // Initialize M5StickC Plus.  初始化 M5StickC PLus
-    M5.Lcd.fillScreen(TFT_BLACK);
-    M5.Lcd.setTextSize(2);  // Set font size.  设置字体大小
     // M5.Lcd.setRotation(3);  // Rotate the screen. 将屏幕旋转
     M5.Lcd.setRotation(1);
+    M5.Lcd.fillScreen(TFT_BLACK);
+    M5.Lcd.setTextSize(1);
+    M5.Lcd.setCursor(0, 0);
+    M5.Lcd.print("Smol text lol");
+    M5.Lcd.setTextSize(2);  // Set font size.  设置字体大小
     // M5.Lcd.setCursor(0, 120);
     M5.Lcd.setCursor(0, 0);
     // M5.Lcd.print("01234567890123456789\n01234567890123456789\n01234567890123456789\n01234567890123456789\n01234567890123456789\n01234567890123456789\n01234567890123456789\n       v1.2.12      ");
