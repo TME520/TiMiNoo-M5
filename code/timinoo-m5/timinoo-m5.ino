@@ -8,6 +8,10 @@
  *  -> Max cols: 20
  *  -> Max lines: 8
  * 
+ * Size 1 font
+ *  -> Max cols: ?
+ *  -> Max lines: ?
+ *  
  */
 
 int gameMode = 99;
@@ -1017,30 +1021,30 @@ void loop() {
       animationStepMax = 8;
       checkButton();
       // Icon frame
-      M5.Lcd.drawXBitmap(69, 1, speech_bubble_56x48, 0);
+      M5.Lcd.drawXBitmap(69, 1, speech_bubble_56x48_bits, speech_bubble_56x48_width, speech_bubble_56x48_length, TFT_WHITE);
       // Icon (always happy)
       if (superHappyCounter<1) {
-        M5.Lcd.drawXBitmap(87, 12, happy_cat_28x28, 0);
+        M5.Lcd.drawXBitmap(87, 12, happy_cat_28x28_bits, happy_cat_28x28_width, happy_cat_28x28_length, TFT_WHITE);
       } else {
-        M5.Lcd.drawXBitmap(87, 12, super_happy_28x28, 0);
+        M5.Lcd.drawXBitmap(87, 12, super_happy_28x28_bits, super_happy_28x28_width, super_happy_28x28_length, TFT_WHITE);
         superHappyCounter -= 1;
       }
       switch (animationStep) {
         case 1 ... 2:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           break;
         case 3 ... 4:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_002_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_002_48x48_bits, cat_sitting_002_48x48_width, cat_sitting_002_48x48_length, TFT_WHITE);
           break;
         case 5 ... 6:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_003_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_003_48x48_bits, cat_sitting_003_48x48_width, cat_sitting_003_48x48_length, TFT_WHITE);
           break;
         case 7 ... 8:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_004_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_004_48x48_bits, cat_sitting_004_48x48_width, cat_sitting_004_48x48_length, TFT_WHITE);
           break;
       }
       break;
@@ -1049,46 +1053,46 @@ void loop() {
       animationStepMax = 8;
       checkButton();
       // Icon frame
-      M5.Lcd.drawXBitmap(69, 1, speech_bubble_56x48, 0);
+      M5.Lcd.drawXBitmap(69, 1, speech_bubble_56x48_bits, speech_bubble_56x48_width, speech_bubble_56x48_length, TFT_WHITE);
       // Icon (anything else than happy)
       switch (currentIcon) {
         case 2:
           // Play
-          M5.Lcd.drawXBitmap(85, 16, play_32x20, 0);
+          M5.Lcd.drawXBitmap(85, 16, play_32x20_bits, play_32x20_width, play_32x20_length, TFT_WHITE);
           break;
         case 3:
           // Study
-          M5.Lcd.drawXBitmap(88, 12, study_26x28, 0);
+          M5.Lcd.drawXBitmap(88, 12, study_26x28_bits, study_26x28_width, study_26x28_length, TFT_WHITE);
           break;
         case 4:
           // Cuddle
-          M5.Lcd.drawXBitmap(89, 14, cuddle_24x24, 0);
+          M5.Lcd.drawXBitmap(89, 14, cuddle_24x24_bits, cuddle_24x24_width, cuddle_24x24_length, TFT_WHITE);
           break;
         case 5:
           // Bubbles
-          M5.Lcd.drawXBitmap(86, 11, bubbles_30x30, 0);
+          M5.Lcd.drawXBitmap(86, 11, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
           break;
         case 6:
           // Pizza
-          M5.Lcd.drawXBitmap(88, 12, pizza_26x28, 0);
+          M5.Lcd.drawXBitmap(88, 12, pizza_26x28_bits, pizza_26x28_width, pizza_26x28_length, TFT_WHITE);
           break;
       }
       switch (animationStep) {
         case 1 ... 2:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           break;
         case 3 ... 4:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_006_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_006_48x48_bits, cat_sitting_006_48x48_width, cat_sitting_006_48x48_length, TFT_WHITE);
           break;
         case 5 ... 6:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_007_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_007_48x48_bits, cat_sitting_007_48x48_width, cat_sitting_007_48x48_length, TFT_WHITE);
           break;
         case 7 ... 8:
           checkButton();
-          M5.Lcd.drawXBitmap(8, 8, cat_sitting_004_48x48, 0);
+          M5.Lcd.drawXBitmap(8, 8, cat_sitting_004_48x48_bits, cat_sitting_004_48x48_width, cat_sitting_004_48x48_length, TFT_WHITE);
           break;
       }
       break;
@@ -1129,27 +1133,27 @@ void loop() {
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           switch (selectedFood) {
             case 1:
-              M5.Lcd.drawXBitmap(50, 28, strawberry_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 28, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_length, TFT_WHITE);
               M5.Lcd.print("  Yummy  strawberry  "));
               break;
             case 2:
-              M5.Lcd.drawXBitmap(50, 28, grape_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 28, grape_28x28_bits, grape_28x28_width, grape_28x28_length, TFT_WHITE);
               M5.Lcd.print("    Fresh  grapes    "));
               break;
             case 3:
-              M5.Lcd.drawXBitmap(50, 28, milk_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 28, milk_28x28_bits, milk_28x28_width, milk_28x28_length, TFT_WHITE);
               M5.Lcd.print("     Farm  milk      "));
               break;
             case 4:
-              M5.Lcd.drawXBitmap(50, 28, orange_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 28, orange_28x28_bits, orange_28x28_width, orange_28x28_length, TFT_WHITE);
               M5.Lcd.print("    Juicy  orange    "));
               break;
             case 5:
-              M5.Lcd.drawXBitmap(50, 28, apple_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 28, apple_28x28_bits, apple_28x28_width, apple_28x28_length, TFT_WHITE);
               M5.Lcd.print("    Tasty  apple     "));
               break;
             case 6:
-              M5.Lcd.drawXBitmap(50, 28, ghost_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 28, ghost_28x28_bits, ghost_28x28_width, ghost_28x28_length, TFT_WHITE);
               M5.Lcd.print("      No  food       "));
               break;
           }
@@ -1171,22 +1175,22 @@ void loop() {
             M5.Lcd.setCursor(0, 55);
             M5.Lcd.print("        Yum !        "));
           }
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           switch (selectedFood) {
             case 1:
-              M5.Lcd.drawXBitmap(50, 14, strawberry_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 14, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_length, TFT_WHITE);
               break;
             case 2:
-              M5.Lcd.drawXBitmap(50, 14, grape_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 14, grape_28x28_bits, grape_28x28_width, grape_28x28_length, TFT_WHITE);
               break;
             case 3:
-              M5.Lcd.drawXBitmap(50, 14, milk_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 14, milk_28x28_bits, milk_28x28_width, milk_28x28_length, TFT_WHITE);
               break;
             case 4:
-              M5.Lcd.drawXBitmap(50, 14, orange_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 14, orange_28x28_bits, orange_28x28_width, orange_28x28_length, TFT_WHITE);
               break;
             case 5:
-              M5.Lcd.drawXBitmap(50, 14, apple_28x28, 0);
+              M5.Lcd.drawXBitmap(50, 14, apple_28x28_bits, apple_28x28_width, apple_28x28_length, TFT_WHITE);
               break;
           }
           generalCounter += 1;
@@ -1204,16 +1208,16 @@ void loop() {
     case 3:
       // Cuddle
       tinyfont.setCursor(70, 40);
-      M5.Lcd.drawXBitmap(8, 8, cat_sitting_001_48x48, 0);
+      M5.Lcd.drawXBitmap(8, 8, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
       generalCounter += 2;
       if (generalCounter<31) {
-        M5.Lcd.drawXBitmap(80, 45 - generalCounter, cuddle_heart_11x10_bits, 0);
-        M5.Lcd.drawXBitmap(92, 40 - generalCounter, cuddle_heart_11x10_bits, 0);
-        M5.Lcd.drawXBitmap(104, 45 - generalCounter, cuddle_heart_11x10_bits, 0);
+        M5.Lcd.drawXBitmap(80, 45 - generalCounter, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
+        M5.Lcd.drawXBitmap(92, 40 - generalCounter, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
+        M5.Lcd.drawXBitmap(104, 45 - generalCounter, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
       } else if (generalCounter>30 && generalCounter < 85) {
-        M5.Lcd.drawXBitmap(80, 15, cuddle_heart_11x10_bits, 0);
-        M5.Lcd.drawXBitmap(92, 10, cuddle_heart_11x10_bits, 0);
-        M5.Lcd.drawXBitmap(104, 15, cuddle_heart_11x10_bits, 0);
+        M5.Lcd.drawXBitmap(80, 15, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
+        M5.Lcd.drawXBitmap(92, 10, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
+        M5.Lcd.drawXBitmap(104, 15, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
         tinyfont.print(F("I love you"));
       } else if (generalCounter>84 && generalCounter < 108) {
         tinyfont.print(F("I love you"));
@@ -1229,8 +1233,8 @@ void loop() {
       switch (currentSequence) {
         case 0:
           // Snail arrives
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
-          M5.Lcd.drawXBitmap(kokoXPos, 40, koko_le_snail_26x22, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
+          M5.Lcd.drawXBitmap(kokoXPos, 40, koko_le_snail_26x22_bits, koko_le_snail_26x22_width, koko_le_snail_26x22_length, TFT_WHITE);
           kokoXPos -= 1;
           if (kokoXPos < 97) {
             kokoXPos = 97;
@@ -1245,8 +1249,8 @@ void loop() {
           // Snail says hello
           M5.Lcd.setCursor(0, 55);
           M5.Lcd.print("           Hi! >     "));
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
-          M5.Lcd.drawXBitmap(97, 40, koko_le_snail_26x22, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
+          M5.Lcd.drawXBitmap(97, 40, koko_le_snail_26x22_bits, koko_le_snail_26x22_width, koko_le_snail_26x22_length, TFT_WHITE);
           generalCounter += 1;
           if (generalCounter>24) {
             generalCounter = 0;
@@ -1257,7 +1261,7 @@ void loop() {
           // Introduction
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 56, 127, WHITE);
-          M5.Lcd.drawXBitmap(97, 21, koko_le_snail_26x22, 0);
+          M5.Lcd.drawXBitmap(97, 21, koko_le_snail_26x22_bits, koko_le_snail_26x22_width, koko_le_snail_26x22_length, TFT_WHITE);
           tinyfont.setCursor(6, 18);
           tinyfont.print(F("Get ready for a\nnew lesson with...\n\n~ Koko Le Snail ~"));
           generalCounter += 1;
@@ -1270,7 +1274,7 @@ void loop() {
           // Snail wisdom quote
           arduboy.drawLine(0, 8, 127, 8, WHITE);
           arduboy.drawLine(0, 56, 127, 56, WHITE);
-          M5.Lcd.drawXBitmap(97, 21, koko_le_snail_26x22, 0);
+          M5.Lcd.drawXBitmap(97, 21, koko_le_snail_26x22_bits, koko_le_snail_26x22_width, koko_le_snail_26x22_length, TFT_WHITE);
           tinyfont.setCursor(6, 18);
           switch (randomQuote) {
             case 1:
@@ -1300,7 +1304,7 @@ void loop() {
           break;
         case 4:
           // Score
-          M5.Lcd.drawXBitmap(51, 28, study_26x28, 0);
+          M5.Lcd.drawXBitmap(51, 28, study_26x28_bits, study_26x28_width, study_26x28_length, TFT_WHITE);
           M5.Lcd.setCursor(0, 10);
           M5.Lcd.print("    + 1  Education   "));
           arduboy.drawFastHLine(0, 8, 127, WHITE);
@@ -1321,7 +1325,7 @@ void loop() {
       switch (currentSequence) {
         case 0:
           // Clean The Cat game
-          M5.Lcd.drawXBitmap(38, 8, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(38, 8, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           checkButton();
           randomNumber = random(-2, 3);
           generalCounter -= 2;
@@ -1333,57 +1337,57 @@ void loop() {
           }
           switch(generalCounter) {
             case 5 ... 15:
-              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30, 0);
+              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
               break;
             case 16 ... 36:
-              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30, 0);
+              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
               break;
             case 37 ... 77:
-              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30, 0);
+              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
               break;
             case 78 ... 98:
-              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(32 + randomNumber, 0, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(64 + randomNumber, 0, bubbles_30x30, 0);
+              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(32 + randomNumber, 0, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(64 + randomNumber, 0, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
               break;
             case 99 ... 110:
-              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(0 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(32 + randomNumber, 0, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(64 + randomNumber, 0, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(96 + randomNumber, 32, bubbles_30x30, 0);
+              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(0 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(32 + randomNumber, 0, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(64 + randomNumber, 0, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(96 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
               break;
             case 111 ... 150:
-              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(0 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(32 + randomNumber, 0, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(64 + randomNumber, 0, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(96 + randomNumber, 32, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(16 + randomNumber, 48, bubbles_30x30, 0);
-              M5.Lcd.drawXBitmap(48 + randomNumber, 48, bubbles_30x30, 0);
+              M5.Lcd.drawXBitmap(23 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(38 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(58 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(73 + randomNumber, 16, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(0 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(32 + randomNumber, 0, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(64 + randomNumber, 0, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(96 + randomNumber, 32, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(16 + randomNumber, 48, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
+              M5.Lcd.drawXBitmap(48 + randomNumber, 48, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
           }
           arduboy.drawFastHLine(0, 63, generalCounter, WHITE);
           break;
         case 1:
           M5.Lcd.setCursor(0, 10);
           M5.Lcd.print("      All clean yay !"));
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
-          M5.Lcd.drawXBitmap(69, 50, cuddle_heart_11x10_bits, 0);
-          M5.Lcd.drawXBitmap(81, 50, cuddle_heart_11x10_bits, 0);
-          M5.Lcd.drawXBitmap(93, 50, cuddle_heart_11x10_bits, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
+          M5.Lcd.drawXBitmap(69, 50, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
+          M5.Lcd.drawXBitmap(81, 50, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
+          M5.Lcd.drawXBitmap(93, 50, cuddle_heart_11x10_bits, cuddle_heart_11x10_width, cuddle_heart_11x10_length, TFT_WHITE);
           generalCounter += 1;
           if (generalCounter>24) {
             generalCounter = 0;
@@ -1403,36 +1407,36 @@ void loop() {
         animationStepMax = 7;
         tinyfont.setCursor(5, 6);
         tinyfont.print(F("xxxx Catsino Deluxe xxxx"));
-        M5.Lcd.drawXBitmap(3, 18, casino_frame_40x40, 0);
-        M5.Lcd.drawXBitmap(44, 18, casino_frame_40x40, 0);
-        M5.Lcd.drawXBitmap(85, 18, casino_frame_40x40, 0);
+        M5.Lcd.drawXBitmap(3, 18, casino_frame_40x40_bits, casino_frame_40x40_width, casino_frame_40x40_length, TFT_WHITE);
+        M5.Lcd.drawXBitmap(44, 18, casino_frame_40x40_bits, casino_frame_40x40_width, casino_frame_40x40_length, TFT_WHITE);
+        M5.Lcd.drawXBitmap(85, 18, casino_frame_40x40_bits, casino_frame_40x40_width, casino_frame_40x40_length, TFT_WHITE);
         checkButton();
         for (gameIconXPos = 9; gameIconXPos < 92; gameIconXPos += 41) {
           randomFoodType = random(0, 8);
           switch (randomFoodType) {
             case 0:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, ghost_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, ghost_28x28_bits, ghost_28x28_width, ghost_28x28_length, TFT_WHITE);
               break;
             case 1:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, bar_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, bar_28x28_bits, bar_28x28_width, bar_28x28_length, TFT_WHITE);
               break;
             case 2:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, strawberry_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_length, TFT_WHITE);
               break;
             case 3:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, apple_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, apple_28x28_bits, apple_28x28_width, apple_28x28_length, TFT_WHITE);
               break;
             case 4:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, grape_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, grape_28x28_bits, grape_28x28_width, grape_28x28_length, TFT_WHITE);
               break;
             case 5:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, milk_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, milk_28x28_bits, milk_28x28_width, milk_28x28_length, TFT_WHITE);
               break;
             case 6:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, orange_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, orange_28x28_bits, orange_28x28_width, orange_28x28_length, TFT_WHITE);
               break;
             case 7:
-              M5.Lcd.drawXBitmap(gameIconXPos, 24, dollar_28x28, 0);
+              M5.Lcd.drawXBitmap(gameIconXPos, 24, dollar_28x28_bits, dollar_28x28_width, dollar_28x28_length, TFT_WHITE);
               break;
           }
         }
@@ -1449,42 +1453,42 @@ void loop() {
         switch (gamePick) {
           case 0:
             // Ghost
-            M5.Lcd.drawXBitmap(50, 28, ghost_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, ghost_28x28_bits, ghost_28x28_width, ghost_28x28_length, TFT_WHITE);
             M5.Lcd.print("   Nothing, boo !    "));
             break;
           case 1:
             // Bar
-            M5.Lcd.drawXBitmap(50, 28, bar_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, bar_28x28_bits, bar_28x28_width, bar_28x28_length, TFT_WHITE);
             M5.Lcd.print("     + 1 of all!     "));
             break;
           case 2:
             // Strawberry
-            M5.Lcd.drawXBitmap(50, 28, strawberry_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_length, TFT_WHITE);
             M5.Lcd.print("   + 1  strawberry   "));
             break;
           case 3:
             // Apple
-            M5.Lcd.drawXBitmap(50, 28, apple_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, apple_28x28_bits, apple_28x28_width, apple_28x28_length, TFT_WHITE);
             M5.Lcd.print("     + 1  apple      "));
             break;
           case 4:
             // Grape
-            M5.Lcd.drawXBitmap(50, 28, grape_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, grape_28x28_bits, grape_28x28_width, grape_28x28_length, TFT_WHITE);
             M5.Lcd.print("     + 1  grape      "));
             break;
           case 5:
             // Milk
-            M5.Lcd.drawXBitmap(50, 28, milk_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, milk_28x28_bits, milk_28x28_width, milk_28x28_length, TFT_WHITE);
             M5.Lcd.print("      + 1  milk      "));
             break;
           case 6:
             // Orange
-            M5.Lcd.drawXBitmap(50, 28, orange_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, orange_28x28_bits, orange_28x28_width, orange_28x28_length, TFT_WHITE);
             M5.Lcd.print("     + 1  orange     "));
             break;
           case 7:
             // Replay + Double
-            M5.Lcd.drawXBitmap(50, 28, dollar_28x28, 0);
+            M5.Lcd.drawXBitmap(50, 28, dollar_28x28_bits, dollar_28x28_width, dollar_28x28_length, TFT_WHITE);
             M5.Lcd.print("Double score + Replay"));
             break;
         }
@@ -1517,7 +1521,7 @@ void loop() {
         case 0:
           // Knock
           checkButton();
-          M5.Lcd.drawXBitmap(50, 14, door_28x30, 0);
+          M5.Lcd.drawXBitmap(50, 14, door_28x30_bits, door_28x30_width, door_28x30_length, TFT_WHITE);
           tinyfont.setCursor(35, 59);
           tinyfont.print(F("Knock knock!"));
           generalCounter += 1;
@@ -1528,11 +1532,11 @@ void loop() {
           break;
         case 1:
           // Hello
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           if (randomVisit<1000) {
-            M5.Lcd.drawXBitmap(96, 14, cindy_28x26, 0);
+            M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_length, TFT_WHITE);
           } else if (randomVisit > 3000) {
-            M5.Lcd.drawXBitmap(96, 14, chichi_30x28, 0);
+            M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
           }
           tinyfont.setCursor(45, 59);
           tinyfont.print(F("Hi friend!"));
@@ -1544,26 +1548,26 @@ void loop() {
           break;
         case 2:
           // Gift
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           tinyfont.setCursor(45, 59);
           switch (randomVisit) {
             case 0 ... 499:
               tinyfont.print(F("I got matcha tea!"));
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26, 0);
+              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_length, TFT_WHITE);
               break;
             case 500 ... 999:
               tinyfont.print(F("I got coco cake!"));
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26, 0);
+              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_length, TFT_WHITE);
               break;
             case 3001 ... 3100:
               // Strawberry
               tinyfont.print(F("I am cooking"));
-              M5.Lcd.drawXBitmap(96, 14, chichi_30x28, 0);
+              M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
               break;
             case 3101 ... 3136:
               // Cuddle
               tinyfont.print(F("I am sad"));
-              M5.Lcd.drawXBitmap(96, 14, chichi_30x28, 0);
+              M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
               break;
           }
           generalCounter += 1;
@@ -1574,32 +1578,32 @@ void loop() {
           break;
         case 3:
           // Drink
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           tinyfont.setCursor(45, 59);
           switch (randomVisit) {
             case 0 ... 999:
               tinyfont.print(F("Have some <3"));
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26, 0);
+              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_length, TFT_WHITE);
               if (randomVisit<500) {
-                M5.Lcd.drawXBitmap(49, 14, matcha_30x32, 0);
+                M5.Lcd.drawXBitmap(49, 14, matcha_30x32_bits, matcha_30x32_width, matcha_30x32_length, TFT_WHITE);
               } else if (randomVisit<1000){
-                M5.Lcd.drawXBitmap(49, 14, coco_cake_28x32, 0);
+                M5.Lcd.drawXBitmap(49, 14, coco_cake_28x32_bits, coco_cake_28x32_width, coco_cake_28x32_length, TFT_WHITE);
               }
               break;
             case 3001 ... 3050:
               // Strawberry
               tinyfont.print(F("I need strawberries"));
-              M5.Lcd.drawXBitmap(96, 14, chichi_30x28, 0);
+              M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
               break;
             case 3051 ... 3100:
               // Orange
               tinyfont.print(F("I need oranges"));
-              M5.Lcd.drawXBitmap(96, 14, chichi_30x28, 0);
+              M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
               break;
             case 3101 ... 3136:
               // Cuddle
               tinyfont.print(F("I need to cuddle"));
-              M5.Lcd.drawXBitmap(96, 14, chichi_30x28, 0);
+              M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
               break;
           }
           generalCounter += 1;
@@ -1642,9 +1646,9 @@ void loop() {
           switch (randomVisit) {
             case 0 ... 999:
               if (randomVisit<500) {
-                M5.Lcd.drawXBitmap(49, 28, matcha_30x32, 0);
+                M5.Lcd.drawXBitmap(49, 28, matcha_30x32_bits, matcha_30x32_width, matcha_30x32_length, TFT_WHITE);
               } else {
-                M5.Lcd.drawXBitmap(50, 28, coco_cake_28x32, 0);
+                M5.Lcd.drawXBitmap(50, 28, coco_cake_28x32_bits, coco_cake_28x32_width, coco_cake_28x32_length, TFT_WHITE);
               }
               M5.Lcd.print("        Yum !        "));
               break;
@@ -1652,18 +1656,18 @@ void loop() {
               // Strawberry
               tinyfont.print(F("Thank you <3"));
               M5.Lcd.print("   - 1 Strawberry    "));
-              M5.Lcd.drawXBitmap(49, 28, strawberry_28x28, 0);
+              M5.Lcd.drawXBitmap(49, 28, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_length, TFT_WHITE);
               break;
             case 3051 ... 3100:
               // Orange
               tinyfont.print(F("Thanks a lot!"));
               M5.Lcd.print("     - 1 Orange      "));
-              M5.Lcd.drawXBitmap(49, 28, orange_28x28, 0);
+              M5.Lcd.drawXBitmap(49, 28, orange_28x28_bits, orange_28x28_width, orange_28x28_length, TFT_WHITE);
               break;
             case 3101 ... 3136:
               // Cuddle
               M5.Lcd.print("  You hug ChiChi  "));
-              M5.Lcd.drawXBitmap(40, 28, cat_sitting_001_48x48, 0);
+              M5.Lcd.drawXBitmap(40, 28, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
               break;
           }
           generalCounter += 1;
@@ -1674,15 +1678,15 @@ void loop() {
           break;
         case 5:
           // Everyone is happy
-          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48, 0);
+          M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_length, TFT_WHITE);
           tinyfont.setCursor(45, 59);
           switch (randomVisit) {
             case 0 ... 999:
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26, 0);
+              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_length, TFT_WHITE);
               tinyfont.print("That was yummy!");
               break;
             case 3001 ... 3136:
-              M5.Lcd.drawXBitmap(96, 14, chichi_30x28, 0);
+              M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
               tinyfont.print(F("Aww thanks <3"));
               break;
           }
@@ -1726,7 +1730,7 @@ void loop() {
           M5.Lcd.setCursor(0, 10);
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
-          M5.Lcd.drawXBitmap(96, 28, chichi_30x28, 0);
+          M5.Lcd.drawXBitmap(96, 28, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
           tinyfont.setCursor(40, 59);
           tinyfont.print(F("Maybe next time..."));
           M5.Lcd.print("   You have none...  "));
@@ -1755,16 +1759,16 @@ void loop() {
         }
         switch (randomFoodType) {
           case 0:
-            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, koko_le_snail_26x22, 0);
+            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, koko_le_snail_26x22_bits, koko_le_snail_26x22_width, koko_le_snail_26x22_length, TFT_WHITE);
             break;
           case 1:
-            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, cindy_28x26, 0);
+            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_length, TFT_WHITE);
             break;
           case 2:
-            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, chichi_30x28, 0);
+            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_length, TFT_WHITE);
             break;
           case 3:
-            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, ghost_28x28, 0);
+            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, ghost_28x28_bits, ghost_28x28_width, ghost_28x28_length, TFT_WHITE);
             break;
         }
         generalCounter += 1;
@@ -1780,12 +1784,12 @@ void loop() {
               arduboy.clear();
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_length, TFT_WHITE);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_length, TFT_WHITE);
                 }
               }
               arduboy.display();
@@ -1797,12 +1801,12 @@ void loop() {
               arduboy.clear();
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_length, TFT_WHITE);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_length, TFT_WHITE);
                 }
               }
               arduboy.display();
@@ -1817,7 +1821,7 @@ void loop() {
         }
       } else if (currentSequence == 2) {
         // Unhappy 2
-        M5.Lcd.drawXBitmap(51, 28, cuss_28x28, 0);
+        M5.Lcd.drawXBitmap(51, 28, cuss_28x28_bits, cuss_28x28_width, cuss_28x28_length, TFT_WHITE);
         M5.Lcd.setCursor(0, 10);
         M5.Lcd.print("      No points      "));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
@@ -1841,12 +1845,12 @@ void loop() {
               arduboy.clear();
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_length, TFT_WHITE);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_length, TFT_WHITE);
                 }
               }
               arduboy.display();
@@ -1858,12 +1862,12 @@ void loop() {
               arduboy.clear();
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_length, TFT_WHITE);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11, 0);
+                  M5.Lcd.drawXBitmap(backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_length, TFT_WHITE);
                 }
               }
               arduboy.display();
@@ -1878,7 +1882,7 @@ void loop() {
         }
       } else if (currentSequence == 4) {
         // Happy 2
-        M5.Lcd.drawXBitmap(51, 28, kiss_28x28, 0);
+        M5.Lcd.drawXBitmap(51, 28, kiss_28x28_bits, kiss_28x28_width, kiss_28x28_length, TFT_WHITE);
         M5.Lcd.setCursor(0, 10);
         M5.Lcd.print("    + 1000 points    "));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
@@ -1915,27 +1919,27 @@ void loop() {
         case 0:
           // Pizza
           M5.Lcd.print("  > Feed  TiMiNoo <  "));
-          M5.Lcd.drawXBitmap(51, 28, pizza_26x28, 0);
+          M5.Lcd.drawXBitmap(51, 28, pizza_26x28_bits, pizza_26x28_width, pizza_26x28_length, TFT_WHITE);
           break;
         case 1:
           // Gamepad
           M5.Lcd.print("> Play with TiMiNoo <"));
-          M5.Lcd.drawXBitmap(48, 28, play_32x20, 0);
+          M5.Lcd.drawXBitmap(48, 28, play_32x20_bits, play_32x20_width, play_32x20_length, TFT_WHITE);
           break;
         case 2:
           // Bubbles
           M5.Lcd.print("  > Wash  TiMiNoo <  "));
-          M5.Lcd.drawXBitmap(49, 28, bubbles_30x30, 0);
+          M5.Lcd.drawXBitmap(49, 28, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
           break;
         case 3:
           // Heart
           M5.Lcd.print(" > Cuddle  TiMiNoo < "));
-          M5.Lcd.drawXBitmap(52, 28, cuddle_24x24, 0);
+          M5.Lcd.drawXBitmap(52, 28, cuddle_24x24_bits, cuddle_24x24_width, cuddle_24x24_length, TFT_WHITE);
           break;
         case 4:
           // Book
           M5.Lcd.print("  > Train TiMiNoo <  "));
-          M5.Lcd.drawXBitmap(51, 28, study_26x28, 0);
+          M5.Lcd.drawXBitmap(51, 28, study_26x28_bits, study_26x28_width, study_26x28_length, TFT_WHITE);
           break;
       }
       arduboy.drawFastHLine(0, 8, 127, WHITE);
@@ -1954,27 +1958,27 @@ void loop() {
         case 0:
           M5.Lcd.print("|||     Hunger    |||"));
           gamePick = catHunger;
-          M5.Lcd.drawXBitmap(4, 28, pizza_26x28, 0);
+          M5.Lcd.drawXBitmap(4, 28, pizza_26x28_bits, pizza_26x28_width, pizza_26x28_length, TFT_WHITE);
           break;
         case 1:
           M5.Lcd.print("|||     Hygiene   |||"));
           gamePick = catHygiene;
-          M5.Lcd.drawXBitmap(4, 28, bubbles_30x30, 0);
+          M5.Lcd.drawXBitmap(4, 28, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_length, TFT_WHITE);
           break;
         case 2:
           M5.Lcd.print("|||    Education  |||"));
           gamePick = catEducation;
-          M5.Lcd.drawXBitmap(4, 28, study_26x28, 0);
+          M5.Lcd.drawXBitmap(4, 28, study_26x28_bits, study_26x28_width, study_26x28_length, TFT_WHITE);
           break;
         case 3:
           M5.Lcd.print("|||     Morale    |||"));
           gamePick = catMorale;
-          M5.Lcd.drawXBitmap(4, 30, cuddle_24x24, 0);
+          M5.Lcd.drawXBitmap(4, 30, cuddle_24x24_bits, cuddle_24x24_width, cuddle_24x24_length, TFT_WHITE);
           break;
         case 4:
           M5.Lcd.print("|||      Fun      |||"));
           gamePick = catEntertainment;
-          M5.Lcd.drawXBitmap(4, 32, play_32x20, 0);
+          M5.Lcd.drawXBitmap(4, 32, play_32x20_bits, play_32x20_width, play_32x20_length, TFT_WHITE);
           break;
       }
       M5.Lcd.setCursor(64, 40);
