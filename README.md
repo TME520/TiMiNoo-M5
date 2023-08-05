@@ -119,6 +119,6 @@ Press the button to kiss your furry cuttie.
 The cat will look at a bubble icon.
 Press the button in order to scrub all that dust off its fur.
 ### Installation instructions
-Use [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) to upload `timinoo.ino` to your Arduboy.
+Use [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) to upload `timinoo.ino` to your M5.
 ## Commercial status
 TiMiNoo is an open source project that is not meant to be sold. Please note the cat sprites and the frames are under a [Creative Commons Attribution-NonCommercial 4.0 International CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license that explicitly prohibits commercial use. I'm 100% OK with this.
