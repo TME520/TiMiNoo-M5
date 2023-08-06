@@ -123,6 +123,13 @@ const unsigned char PROGMEM door_28x30_bits[] = {
 int buttonAPressCounter = 0;
 long frameCounter = 0;
 
+void smoltxt(int posX, int posY, String smallText) {
+  // Display small text (size 1)
+  M5.Lcd.setTextSize(1);
+  M5.Lcd.setCursor(posX, posY);
+  M5.Lcd.print(smallText);
+}
+
 /* After M5StickC Plus is started or reset
   the program in the setUp () function will be run, and this part will only be
   run once. 在 M5StickC Plus
@@ -132,9 +139,7 @@ void setup() {
     // M5.Lcd.setRotation(3);  // Rotate the screen. 将屏幕旋转
     M5.Lcd.setRotation(1);
     M5.Lcd.fillScreen(TFT_BLACK);
-    M5.Lcd.setTextSize(1);
-    M5.Lcd.setCursor(0, 0);
-    M5.Lcd.print("Smol text lol");
+    smoltxt(0, 0, "Smol text lol");
     M5.Lcd.setTextSize(2);  // Set font size.  设置字体大小
     // M5.Lcd.setCursor(0, 120);
     M5.Lcd.setCursor(0, 0);
