@@ -1,3 +1,7 @@
+# 2023-08-06
+- Learning how to use buttons
+- Working on main loop
+
 # 2023-08-05
 - Version screen completed
 - Proceeding with conversion work based on Arduboy version 1.2.12

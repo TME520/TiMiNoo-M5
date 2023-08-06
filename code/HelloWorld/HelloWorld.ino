@@ -10,6 +10,9 @@
 * Date: 2021/9/14
 *******************************************************************************
 */
+
+// Doc: https://github.com/m5stack/M5StickC-Plus
+
 #include <M5StickCPlus.h>
 #include <pgmspace.h>
 
@@ -117,6 +120,9 @@ const unsigned char PROGMEM door_28x30_bits[] = {
    0xf3, 0xfc, 0x33, 0x0c, 0xf3, 0xfc, 0x33, 0x0c, 0xf3, 0xff, 0x3f, 0x0c,
    0xf3, 0xff, 0x3f, 0x0c, 0xf3, 0xff, 0xff, 0x0c, 0xf3, 0xff, 0xff, 0x0c };
 
+int buttonAPressCounter = 0;
+long frameCounter = 0;
+
 /* After M5StickC Plus is started or reset
   the program in the setUp () function will be run, and this part will only be
   run once. 在 M5StickC Plus
@@ -143,4 +149,16 @@ The loop() function is an infinite loop in which the program runs repeatedly
 在setup()函数中的程序执行完后，会接着执行loop()函数中的程序
 loop()函数是一个死循环，其中的程序会不断的重复运行 */
 void loop() {
+  frameCounter += 1;
+  if ( M5.BtnA.wasPressed() ) {
+    buttonAPressCounter += 1;
+  }
+  if ( M5.BtnB.wasPressed() ) {
+    buttonAPressCounter = 0;
+    M5.Lcd.fillScreen(TFT_BLACK);
+  }
+  M5.Lcd.setCursor(0,0);
+  M5.Lcd.print((int)buttonAPressCounter);
+  M5.update();
+  delay(10);
 }
