@@ -20,6 +20,7 @@
 // https://github.com/m5stack/M5GFX/blob/master/examples/Basic/drawImageData/drawImageData.ino
 
 M5GFX display;
+extern const uint8_t jpg[];
 int gameMode = 99;
 long score = 0;
 char scoreString[9];
