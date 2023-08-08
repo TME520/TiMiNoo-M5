@@ -932,6 +932,7 @@ void checkButton()
 }
 
 void loop() {
+  M5.Lcd.fillScreen(TFT_BLACK);
   checkButton();
   frameCounter += 1;
   if (frameCounter > 4294967290) {
@@ -2002,5 +2003,5 @@ void loop() {
   }
   
   M5.update();
-  delay(10);
+  delay(40);
 }
