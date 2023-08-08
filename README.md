@@ -1,7 +1,7 @@
 # TiMiNoo M5
 Cute 1 bit VPet for M5 - Feed, cuddle, clean and educate your own unique cat.
 
-3 mini games, 7 food types, friends visits and presents, all on the mighty Arduboy.
+3 mini games, 7 food types, friends visits and presents, all on the mighty M5 Stick C+.
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
@@ -54,12 +54,12 @@ Your TiMiNoo will get hungry as time goes by. Feed it a variety of food includin
 Your TiMiNoo will want to learn new things. Call Professor Koko Le Snail, a wise teacher that will share is best knowledge with your cuttie.
 ### Cuddle
 TiMiNoo craves attention and love, make sure to give it plenty.
-### Random visits from your friends ![cindy](./assets/icons/cindy.png "Your friend Cindy") ![chichi](./assets/icons/chichi.png "Your friend ChiChi")
+### Random visits from your friends ![sophie](./assets/icons/sophie.png "Your friend Sophie") ![chichi](./assets/icons/chichi.png "Your friend ChiChi")
 Sometimes, when the cat gets hungry, one of its friend will come.
 
-TiMiNoo has two good friends: Cindy and ChiChi
+TiMiNoo has two good friends: Sophie and ChiChi
 
-- ![cindy](./assets/icons/cindy.png "Your friend Cindy") Cindy offers either a nice Matcha tea or a generous slice of a yummy homemade Coco cake. She may look like a bear, but she has a good heart and is very sweet (except when it's full moon). She lives in a big house with two bedrooms and four bathrooms,
+- ![sophie](./assets/icons/sophie.png "Your friend Sophie") Sophie offers either a nice Matcha tea or a generous slice of a yummy homemade Coco cake. She may look like a bear, but she has a good heart and is very sweet (except when it's full moon). She lives in a big house with two bedrooms and four bathrooms,
 - ![chichi](./assets/icons/chichi.png "Your friend ChiChi") ChiChi loves to cook and sometimes misses an ingredient. She will ask you for help, be a good friend and give her what she needs. Occasionally, she will be sad and simply ask for a hug. She is nice, but she likes pineapple pizza, which is weird. Actually, it's kind of illegal in Italy, so she will never travel there.
 ### Scoring system
 Earn points every time you take action and increase your score.
@@ -80,7 +80,7 @@ Earn points every time you take action and increase your score.
 #### Wash
 - Keep your cat clean: +200 points
 #### Visit from a friend
-- Receive a visit from your friend Cindy: +10000 points
+- Receive a visit from your friend Sophie: +10000 points
 - Receive a visit from your friend ChiChi: +5000 points
 #### Beware of the ghost !
 - Ghost encounter: -666 points
@@ -119,6 +119,6 @@ Press the button to kiss your furry cuttie.
 The cat will look at a bubble icon.
 Press the button in order to scrub all that dust off its fur.
 ### Installation instructions
-Use [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) to upload `timinoo.ino` to your Arduboy.
+Use [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) to upload `timinoo.ino` to your M5.
 ## Commercial status
 TiMiNoo is an open source project that is not meant to be sold. Please note the cat sprites and the frames are under a [Creative Commons Attribution-NonCommercial 4.0 International CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license that explicitly prohibits commercial use. I'm 100% OK with this.
