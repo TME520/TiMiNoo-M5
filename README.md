@@ -1,7 +1,7 @@
 # TiMiNoo M5
 Cute 1 bit VPet for M5 - Feed, cuddle, clean and educate your own unique cat.
 
-3 mini games, 7 food types, friends visits and presents, all on the mighty Arduboy.
+3 mini games, 7 food types, friends visits and presents, all on the mighty M5 Stick C+.
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
