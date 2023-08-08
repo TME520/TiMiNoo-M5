@@ -600,9 +600,9 @@ const unsigned char PROGMEM super_happy_28x28_bits[] = {
    0xf0, 0xff, 0xff, 0x00, 0xf0, 0xff, 0xff, 0x00, 0xc0, 0xff, 0x3f, 0x00,
    0xc0, 0xff, 0x3f, 0x00 };
 
-#define cindy_28x26_width 28
-#define cindy_28x26_height 26
-const unsigned char PROGMEM cindy_28x26_bits[] = {
+#define sophie_28x26_width 28
+#define sophie_28x26_height 26
+const unsigned char PROGMEM sophie_28x26_bits[] = {
    0xcf, 0xff, 0x3f, 0x0f, 0xcf, 0xff, 0x3f, 0x0f, 0xf3, 0xff, 0xff, 0x0c,
    0xf3, 0xff, 0xff, 0x0c, 0x3c, 0x3f, 0xff, 0x03, 0x3c, 0x3f, 0xff, 0x03,
    0x3c, 0x3f, 0xff, 0x03, 0x3c, 0x3f, 0xff, 0x03, 0xfc, 0xff, 0xff, 0x03,
@@ -1534,7 +1534,7 @@ void loop() {
           // Hello
           M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_height, TFT_WHITE);
           if (randomVisit<1000) {
-            M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_height, TFT_WHITE);
+            M5.Lcd.drawXBitmap(96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
           } else if (randomVisit > 3000) {
             M5.Lcd.drawXBitmap(96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
           }
@@ -1551,11 +1551,11 @@ void loop() {
           switch (randomVisit) {
             case 0 ... 499:
               smoltxt(45, 59, "I got matcha tea!");
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_height, TFT_WHITE);
+              M5.Lcd.drawXBitmap(96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
               break;
             case 500 ... 999:
               smoltxt(45, 59, "I got coco cake!");
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_height, TFT_WHITE);
+              M5.Lcd.drawXBitmap(96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
               break;
             case 3001 ... 3100:
               // Strawberry
@@ -1580,7 +1580,7 @@ void loop() {
           switch (randomVisit) {
             case 0 ... 999:
               smoltxt(45, 59, "Have some <3");
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_height, TFT_WHITE);
+              M5.Lcd.drawXBitmap(96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
               if (randomVisit<500) {
                 M5.Lcd.drawXBitmap(49, 14, matcha_30x32_bits, matcha_30x32_width, matcha_30x32_height, TFT_WHITE);
               } else if (randomVisit<1000){
@@ -1678,7 +1678,7 @@ void loop() {
           M5.Lcd.drawXBitmap(-24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_height, TFT_WHITE);
           switch (randomVisit) {
             case 0 ... 999:
-              M5.Lcd.drawXBitmap(96, 14, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_height, TFT_WHITE);
+              M5.Lcd.drawXBitmap(96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
               smoltxt(45, 59, "That was yummy!");
               break;
             case 3001 ... 3136:
@@ -1741,7 +1741,7 @@ void loop() {
     case 9:
       // Game: Kiss Cuss
       if (currentSequence == 0) {
-        // Display random character (Koko, Cindy, ChiChi or Ghost)
+        // Display random character (Koko, Sophie, ChiChi or Ghost)
         checkButton();
         M5.Lcd.setCursor(0, 10);
         M5.Lcd.print("[B]  Kiss ~ Cuss  [A]");
@@ -1757,7 +1757,7 @@ void loop() {
             M5.Lcd.drawXBitmap(randomGameIconXPos, 28, koko_le_snail_26x22_bits, koko_le_snail_26x22_width, koko_le_snail_26x22_height, TFT_WHITE);
             break;
           case 1:
-            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, cindy_28x26_bits, cindy_28x26_width, cindy_28x26_height, TFT_WHITE);
+            M5.Lcd.drawXBitmap(randomGameIconXPos, 28, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
             break;
           case 2:
             M5.Lcd.drawXBitmap(randomGameIconXPos, 28, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
