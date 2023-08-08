@@ -1,5 +1,6 @@
 # 2023-08-08
 - Clearing up Arduboy -> M5 conversion leftovers
+- Using M5GFX library for graphics
 
 # 2023-08-06
 - Learning how to use buttons

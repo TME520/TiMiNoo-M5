@@ -1,4 +1,5 @@
 #include <M5StickCPlus.h>
+#include <M5GFX.h>
 #include <pgmspace.h>
 
 /*
@@ -14,6 +15,11 @@
  *  
  */
 
+// https://github.com/m5stack/M5StickC-Plus
+// https://github.com/m5stack/M5GFX
+// https://github.com/m5stack/M5GFX/blob/master/examples/Basic/drawImageData/drawImageData.ino
+
+M5GFX display;
 int gameMode = 99;
 long score = 0;
 char scoreString[9];
