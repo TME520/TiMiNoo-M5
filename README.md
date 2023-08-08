@@ -5,7 +5,7 @@ Cute 1 bit VPet for M5 - Feed, cuddle, clean and educate your own unique cat.
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
-## Current version: 1.2.12
+## Current version: 1.2.13
 
 ## Presentation
 

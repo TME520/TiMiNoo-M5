@@ -1,3 +1,7 @@
+# 2023-08-09
+- Starting work on TiMiNoo M5 version 1.2.13
+- This version is about 2 things: using M5GFX lib and implementing gardening
+
 # 2023-08-08
 - Clearing up Arduboy -> M5 conversion leftovers
 - Using M5GFX library for graphics
