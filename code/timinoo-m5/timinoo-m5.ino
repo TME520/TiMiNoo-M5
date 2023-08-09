@@ -1996,7 +1996,7 @@ void loop() {
       // Show version
       M5.Lcd.drawXBitmap(56, 35, timinoo_logo_128x64_bits, timinoo_logo_128x64_width, timinoo_logo_128x64_height, TFT_WHITE);
       M5.Lcd.setCursor(0, 0);
-      M5.Lcd.print("\n\n\n\n\n\n\n       v1.2.12      ");
+      M5.Lcd.print("\n\n\n\n\n\n\n       v1.2.13      ");
       generalCounter += 1;
       if (generalCounter>24) {
         gameMode = 0;
