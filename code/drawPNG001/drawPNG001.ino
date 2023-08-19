@@ -3,7 +3,8 @@
 #include <SPIFFS.h>
 
 M5GFX display;
-String file_name = "/chichi_30x28.png";
+// String file_name = "/chichi_30x28.png";
+String file_name = "/test.png";
 bool SPIFFS_FORMAT = false;
 
 void setup() {
@@ -45,6 +46,7 @@ void loop() {
   M5.update();  // Check whether the key is pressed.  检测按键是否按下
   // display.startWrite();
   display.drawPngFile(SPIFFS, file_name.c_str(), 0, 0);
+  display.drawPngFile(SPIFFS, file_name, 0, 0);
   // display.endWrite();
   if (M5.BtnA.isPressed()) {  // If the button is pressed.  如果按键按下
     if (SPIFFS.exists(file_name)) {  // Check whether the file_name file exists
