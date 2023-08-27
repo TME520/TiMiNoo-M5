@@ -1,3 +1,7 @@
+# 2023-08-27
+- Full game loop using M5GFX
+- Next step is to use M5GFX Canvases to implement double-buffering
+
 # 2023-08-26
 - Converted all sprites to PNG for use with M5GFX lib
 - Experimented with SPIFFS files for backups

@@ -1,6 +1,5 @@
 #include <M5StickCPlus.h>
 #include <M5GFX.h>
-#include <pgmspace.h>
 #include <SPIFFS.h>
 #include "timinoo_m5_images.h"
 
@@ -20,8 +19,10 @@
 // https://github.com/m5stack/M5StickC-Plus
 // https://github.com/m5stack/M5GFX
 // https://github.com/m5stack/M5GFX/blob/master/examples/Basic/drawImageData/drawImageData.ino
+// https://github.com/m5stack/M5GFX/blob/master/examples/Basic/GameOfLife/GameOfLife.ino
 
 M5GFX display;
+M5Canvas canvas[1];
 extern const uint8_t jpg[];
 int gameMode = 99;
 long score = 0;
@@ -87,24 +88,42 @@ unsigned long lastCatEntertainmentCheck = 0;
 
 void smoltxt(int posX, int posY, String smallText) {
   // Display small text (size 1)
-  M5.Lcd.setTextSize(1);
-  M5.Lcd.setCursor(posX, posY);
-  M5.Lcd.print(smallText);
+  /*
+  canvas[0].setTextColor(1);
+  canvas[0].setTextSize(1.0);
+  canvas[0].setTextDatum(textdatum_t::bottom_center);
+  canvas[0].drawString(smallText, canvas[0].width() >> 1, canvas[0].height() >> 1);
+  canvas[0].pushRotateZoom(&display, 0,  (float)display.width() / canvas[0].width(), (float)display.height() / canvas[0].height());
+  */
+  display.setTextSize(1);
+  display.setCursor(posX, posY);
+  display.print(smallText);
 }
 
 void normtxt(int posX, int posY, String normText) {
   // Display normal text (size 2)
-  M5.Lcd.setTextSize(2);
-  M5.Lcd.setCursor(posX, posY);
-  M5.Lcd.print(normText);
+  display.setTextSize(2);
+  display.setCursor(posX, posY);
+  display.print(normText);
 }
 
 void setup() {
   M5.begin();
-  M5.Lcd.fillScreen(TFT_BLACK);
-  M5.Lcd.setTextSize(2);
-  // USB cable to the right (0=bottom; 3=left)
-  M5.Lcd.setRotation(1);
+  display.begin();
+  display.setColorDepth(8);
+  display.setEpdMode(epd_mode_t::epd_fastest);
+  if (display.width() < display.height())
+  {
+    display.setRotation(display.getRotation() ^ 1);
+    display.setPivot(display.width() /2 -0.5, display.height() /2 - 0.5);
+  }
+  /*
+  canvas[0].setColorDepth(8);
+  canvas[0].createSprite(width, height);
+  canvas[0].createPalette();
+  canvas[0].setPaletteColor(1, TFT_WHITE);
+  canvas[0].setPivot(canvas[i].width() /2 -0.5, canvas[i].height() /2 - 0.5);
+  */
 }
 
 void checkButton()
@@ -299,7 +318,6 @@ void checkButton()
 }
 
 void loop() {
-  M5.Lcd.fillScreen(TFT_BLACK);
   checkButton();
   frameCounter += 1;
   if (frameCounter > 4294967290) {
@@ -384,6 +402,8 @@ void loop() {
     gameMode = 1;
   }
 
+  display.startWrite();
+  display.clear();
   switch (gameMode) {
     case 0:
       // Idling
@@ -497,33 +517,33 @@ void loop() {
           break;
         case 1:
           // Eat food
-          M5.Lcd.setCursor(0, 10);
-          M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-          M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+          display.setCursor(0, 10);
+          // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+          // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
           switch (selectedFood) {
             case 1:
               display.drawPng(strawberry_28x28, ~0u, 50, 28);
-              M5.Lcd.print("  Yummy  strawberry  ");
+              display.print("  Yummy  strawberry  ");
               break;
             case 2:
               display.drawPng(grape_28x28, ~0u, 50, 28);
-              M5.Lcd.print("    Fresh  grapes    ");
+              display.print("    Fresh  grapes    ");
               break;
             case 3:
               display.drawPng(milk_28x28, ~0u, 50, 28);
-              M5.Lcd.print("     Farm  milk      ");
+              display.print("     Farm  milk      ");
               break;
             case 4:
               display.drawPng(orange_28x28, ~0u, 50, 28);
-              M5.Lcd.print("    Juicy  orange    ");
+              display.print("    Juicy  orange    ");
               break;
             case 5:
               display.drawPng(apple_28x28, ~0u, 50, 28);
-              M5.Lcd.print("    Tasty  apple     ");
+              display.print("    Tasty  apple     ");
               break;
             case 6:
               display.drawPng(ghost_28x28, ~0u, 50, 28);
-              M5.Lcd.print("      No  food       ");
+              display.print("      No  food       ");
               break;
           }
           generalCounter += 1;
@@ -541,8 +561,8 @@ void loop() {
         case 2:
           // Yum
           if (selectedFood != 6) {
-            M5.Lcd.setCursor(0, 55);
-            M5.Lcd.print("        Yum !        ");
+            display.setCursor(0, 55);
+            display.print("        Yum !        ");
           }
           display.drawPng(cat_sitting_001_48x48, ~0u, -24, 13);
           switch (selectedFood) {
@@ -626,8 +646,8 @@ void loop() {
           break;
         case 2:
           // Introduction
-          M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-          M5.Lcd.drawLine(0, 56, 239, 56, WHITE);
+          // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+          // M5.Lcd.drawLine(0, 56, 239, 56, WHITE);
           display.drawPng(koko_le_snail_26x22, ~0u, 97, 21);
           smoltxt(6, 18, "Get ready for a\nnew lesson with...\n\n~ Koko Le Snail ~");
           generalCounter += 1;
@@ -638,8 +658,8 @@ void loop() {
           break;
         case 3:
           // Snail wisdom quote
-          M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-          M5.Lcd.drawLine(0, 56, 239, 56, WHITE);
+          // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+          // M5.Lcd.drawLine(0, 56, 239, 56, WHITE);
           display.drawPng(koko_le_snail_26x22, ~0u, 97, 21);
           switch (randomQuote) {
             case 1:
@@ -671,8 +691,8 @@ void loop() {
           // Score
           display.drawPng(study_26x28, ~0u, 51, 28);
           normtxt(0, 10, "    + 1  Education   ");
-          M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-          M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+          // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+          // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
           generalCounter += 1;
           if (generalCounter>24) {
             generalCounter = 0;
@@ -743,7 +763,7 @@ void loop() {
               display.drawPng(bubbles_30x30, ~0u, 16 + randomNumber, 48);
               display.drawPng(bubbles_30x30, ~0u, 48 + randomNumber, 48);
           }
-          M5.Lcd.drawLine(0, 63, generalCounter, 63, WHITE);
+          // M5.Lcd.drawLine(0, 63, generalCounter, 63, WHITE);
           break;
         case 1:
           normtxt(0, 10, "      All clean yay !");
@@ -809,8 +829,8 @@ void loop() {
         }
       } else if (currentSequence == 1) {
         // See the result
-        M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-        M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+        // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+        // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
         switch (gamePick) {
           case 0:
             // Ghost
@@ -997,9 +1017,9 @@ void loop() {
           break;
         case 4:
           // Bonus
-          M5.Lcd.setCursor(0, 10);
-          M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-          M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+          display.setCursor(0, 10);
+          // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+          // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
           switch (randomVisit) {
             case 0 ... 999:
               if (randomVisit<500) {
@@ -1007,23 +1027,23 @@ void loop() {
               } else {
                 display.drawPng(coco_cake_28x32, ~0u, 50, 28);
               }
-              M5.Lcd.print("        Yum !        ");
+              display.print("        Yum !        ");
               break;
             case 3001 ... 3050:
               // Strawberry
               smoltxt(45, 59, "Thank you <3");
-              M5.Lcd.print("   - 1 Strawberry    ");
+              display.print("   - 1 Strawberry    ");
               display.drawPng(strawberry_28x28, ~0u, 49, 28);
               break;
             case 3051 ... 3100:
               // Orange
               smoltxt(45, 59, "Thanks a lot!");
-              M5.Lcd.print("     - 1 Orange      ");
+              display.print("     - 1 Orange      ");
               display.drawPng(orange_28x28, ~0u, 49, 28);
               break;
             case 3101 ... 3136:
               // Cuddle
-              M5.Lcd.print("  You hug ChiChi  ");
+              display.print("  You hug ChiChi  ");
               display.drawPng(cat_sitting_001_48x48, ~0u, 40, 28);
               break;
           }
@@ -1053,17 +1073,17 @@ void loop() {
           }
           break;
         case 6:
-          M5.Lcd.setCursor(0, 10);
+          display.setCursor(0, 10);
           switch (randomVisit) {
             case 0 ... 999:
-              M5.Lcd.print("    + 10000 points   ");
+              display.print("    + 10000 points   ");
               break;
             case 3001 ... 3136:
-              M5.Lcd.print("    + 5000 points    ");
+              display.print("    + 5000 points    ");
               break;
           }
-          M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-          M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+          // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+          // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
           generalCounter += 1;
           if (generalCounter>24) {
             currentSequence = 0;
@@ -1083,12 +1103,12 @@ void loop() {
           break;
         case 7:
           // ChiChi is sad
-          M5.Lcd.setCursor(0, 10);
-          M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-          M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+          display.setCursor(0, 10);
+          // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+          // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
           display.drawPng(chichi_30x28, ~0u, 96, 28);
           smoltxt(40, 59, "Maybe next time...");
-          M5.Lcd.print("   You have none...  ");
+          display.print("   You have none...  ");
           generalCounter += 1;
           if (generalCounter>24) {
             currentSequence = 0;
@@ -1103,10 +1123,10 @@ void loop() {
       if (currentSequence == 0) {
         // Display random character (Koko, Sophie, ChiChi or Ghost)
         checkButton();
-        M5.Lcd.setCursor(0, 10);
-        M5.Lcd.print("[B]  Kiss ~ Cuss  [A]");
-        M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-        M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+        display.setCursor(0, 10);
+        display.print("[B]  Kiss ~ Cuss  [A]");
+        // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+        // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
         checkButton();
         if ( frameCounter % 6 == 0 ) {
           randomFoodType = random(0, 4);
@@ -1173,10 +1193,10 @@ void loop() {
       } else if (currentSequence == 2) {
         // Unhappy 2
         display.drawPng(cuss_28x28, ~0u, 51, 28);
-        M5.Lcd.setCursor(0, 10);
-        M5.Lcd.print("      No points      ");
-        M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-        M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+        display.setCursor(0, 10);
+        display.print("      No points      ");
+        // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+        // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
         generalCounter += 1;
         if (generalCounter>16) {
           generalCounter = 0;
@@ -1230,10 +1250,10 @@ void loop() {
       } else if (currentSequence == 4) {
         // Happy 2
         display.drawPng(kiss_28x28, ~0u, 51, 28);
-        M5.Lcd.setCursor(0, 10);
-        M5.Lcd.print("    + 1000 points    ");
-        M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-        M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+        display.setCursor(0, 10);
+        display.print("    + 1000 points    ");
+        // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+        // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
         generalCounter += 1;
         if (generalCounter>16) {
           score += 1000;
@@ -1247,10 +1267,10 @@ void loop() {
           randomFoodType = random(0, 4);
         }
       } else if (currentSequence == 5) {
-        M5.Lcd.setCursor(0, 10);
-        M5.Lcd.print(" Thanks for playing! ");
-        M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-        M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+        display.setCursor(0, 10);
+        display.print(" Thanks for playing! ");
+        // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+        // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
         generalCounter += 1;
         if (generalCounter>24) {
           generalCounter = 0;
@@ -1261,36 +1281,36 @@ void loop() {
       }
       break;
     case 10:
-      M5.Lcd.setCursor(0, 10);
+      display.setCursor(0, 10);
       switch (currentSequence) {
         case 0:
           // Pizza
-          M5.Lcd.print("  > Feed  TiMiNoo <  ");
+          display.print("  > Feed  TiMiNoo <  ");
           display.drawPng(pizza_26x28, ~0u, 51, 28);
           break;
         case 1:
           // Gamepad
-          M5.Lcd.print("> Play with TiMiNoo <");
+          display.print("> Play with TiMiNoo <");
           display.drawPng(play_32x20, ~0u, 48, 28);
           break;
         case 2:
           // Bubbles
-          M5.Lcd.print("  > Wash  TiMiNoo <  ");
+          display.print("  > Wash  TiMiNoo <  ");
           display.drawPng(bubbles_30x30, ~0u, 49, 28);
           break;
         case 3:
           // Heart
-          M5.Lcd.print(" > Cuddle  TiMiNoo < ");
+          display.print(" > Cuddle  TiMiNoo < ");
           display.drawPng(cuddle_24x24, ~0u, 52, 28);
           break;
         case 4:
           // Book
-          M5.Lcd.print("  > Train TiMiNoo <  ");
+          display.print("  > Train TiMiNoo <  ");
           display.drawPng(study_26x28, ~0u, 51, 28);
           break;
       }
-      M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-      M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+      // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+      // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
       generalCounter += 1;
       if (generalCounter>48) {
         currentSequence = 0;
@@ -1300,51 +1320,51 @@ void loop() {
       break;
     case 11:
       // Statistics screen
-      M5.Lcd.setCursor(0, 10);
+      display.setCursor(0, 10);
       switch (currentSequence) {
         case 0:
-          M5.Lcd.print("|||     Hunger    |||");
+          display.print("|||     Hunger    |||");
           gamePick = catHunger;
           display.drawPng(pizza_26x28, ~0u, 4, 28);
           break;
         case 1:
-          M5.Lcd.print("|||     Hygiene   |||");
+          display.print("|||     Hygiene   |||");
           gamePick = catHygiene;
           display.drawPng(bubbles_30x30, ~0u, 4, 28);
           break;
         case 2:
-          M5.Lcd.print("|||    Education  |||");
+          display.print("|||    Education  |||");
           gamePick = catEducation;
           display.drawPng(study_26x28, ~0u, 4, 28);
           break;
         case 3:
-          M5.Lcd.print("|||     Morale    |||");
+          display.print("|||     Morale    |||");
           gamePick = catMorale;
           display.drawPng(cuddle_24x24, ~0u, 4, 30);
           break;
         case 4:
-          M5.Lcd.print("|||      Fun      |||");
+          display.print("|||      Fun      |||");
           gamePick = catEntertainment;
           display.drawPng(play_32x20, ~0u, 4, 32);
           break;
       }
-      M5.Lcd.setCursor(64, 40);
+      display.setCursor(64, 40);
       switch (gamePick) {
         case 0:
-          M5.Lcd.print("---");
+          display.print("---");
           break;
         case 1:
-          M5.Lcd.print("[]");
+          display.print("[]");
           break;
         case 2:
-          M5.Lcd.print("[][]");
+          display.print("[][]");
           break;
         case 3:
-          M5.Lcd.print("[][][]");
+          display.print("[][][]");
           break;
       }
-      M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
-      M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
+      // M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
+      // M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
       generalCounter += 1;
       if (generalCounter>48) {
         generalCounter = 0;
@@ -1354,9 +1374,9 @@ void loop() {
       break;
     case 99:
       // Show version
-      display.drawPng(timinoo_logo_128x64, ~0u, 56, 35);
-      M5.Lcd.setCursor(0, 0);
-      M5.Lcd.print("\n\n\n\n\n\n\n       v1.2.13      ");
+      display.drawPng(timinoo_logo_128x64, ~0u, 0, 0);
+      display.setCursor(0, 0);
+      display.print("\n\n\n\n\n\n\n       v1.2.13      ");
       generalCounter += 1;
       if (generalCounter>24) {
         gameMode = 0;
@@ -1368,7 +1388,9 @@ void loop() {
     ltoa(score, scoreString, 10);
     smoltxt(81, 60, scoreString);
   }
-  
-  M5.update();
+
+  display.display();
   delay(40);
+  display.endWrite();
+  M5.update();
 }
