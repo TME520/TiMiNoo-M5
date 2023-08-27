@@ -2,7 +2,7 @@
 #include <M5GFX.h>
 #include <pgmspace.h>
 #include <SPIFFS.h>
-#include <timinoo_m5_images.h>
+#include "timinoo_m5_images.h"
 
 /*
  * Screen resolution: 240x135
@@ -777,28 +777,28 @@ void loop() {
           randomFoodType = random(0, 8);
           switch (randomFoodType) {
             case 0:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, ghost_28x28_bits, ghost_28x28_width, ghost_28x28_height, TFT_WHITE);
+              display.drawPng(ghost_28x28, ~0u, gameIconXPos, 24);
               break;
             case 1:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, bar_28x28_bits, bar_28x28_width, bar_28x28_height, TFT_WHITE);
+              display.drawPng(bar_28x28, ~0u, gameIconXPos, 24);
               break;
             case 2:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_height, TFT_WHITE);
+              display.drawPng(strawberry_28x28, ~0u, gameIconXPos, 24);
               break;
             case 3:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, apple_28x28_bits, apple_28x28_width, apple_28x28_height, TFT_WHITE);
+              display.drawPng(apple_28x28, ~0u, gameIconXPos, 24);
               break;
             case 4:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, grape_28x28_bits, grape_28x28_width, grape_28x28_height, TFT_WHITE);
+              display.drawPng(grape_28x28, ~0u, gameIconXPos, 24);
               break;
             case 5:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, milk_28x28_bits, milk_28x28_width, milk_28x28_height, TFT_WHITE);
+              display.drawPng(milk_28x28, ~0u, gameIconXPos, 24);
               break;
             case 6:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, orange_28x28_bits, orange_28x28_width, orange_28x28_height, TFT_WHITE);
+              display.drawPng(orange_28x28, ~0u, gameIconXPos, 24);
               break;
             case 7:
-              display.drawPng(XXX, ~0u, gameIconXPos, 24, dollar_28x28_bits, dollar_28x28_width, dollar_28x28_height, TFT_WHITE);
+              display.drawPng(dollar_28x28, ~0u, gameIconXPos, 24);
               break;
           }
         }
@@ -814,42 +814,42 @@ void loop() {
         switch (gamePick) {
           case 0:
             // Ghost
-            display.drawPng(XXX, ~0u, 50, 28, ghost_28x28_bits, ghost_28x28_width, ghost_28x28_height, TFT_WHITE);
+            display.drawPng(ghost_28x28, ~0u, 50, 28);
             normtxt(0, 10, "   Nothing, boo !    ");
             break;
           case 1:
             // Bar
-            display.drawPng(XXX, ~0u, 50, 28, bar_28x28_bits, bar_28x28_width, bar_28x28_height, TFT_WHITE);
+            display.drawPng(bar_28x28, ~0u, 50, 28);
             normtxt(0, 10, "     + 1 of all!     ");
             break;
           case 2:
             // Strawberry
-            display.drawPng(XXX, ~0u, 50, 28, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_height, TFT_WHITE);
+            display.drawPng(strawberry_28x28, ~0u, 50, 28);
             normtxt(0, 10, "   + 1  strawberry   ");
             break;
           case 3:
             // Apple
-            display.drawPng(XXX, ~0u, 50, 28, apple_28x28_bits, apple_28x28_width, apple_28x28_height, TFT_WHITE);
+            display.drawPng(apple_28x28, ~0u, 50, 28);
             normtxt(0, 10, "     + 1  apple      ");
             break;
           case 4:
             // Grape
-            display.drawPng(XXX, ~0u, 50, 28, grape_28x28_bits, grape_28x28_width, grape_28x28_height, TFT_WHITE);
+            display.drawPng(grape_28x28, ~0u, 50, 28);
             normtxt(0, 10, "     + 1  grape      ");
             break;
           case 5:
             // Milk
-            display.drawPng(XXX, ~0u, 50, 28, milk_28x28_bits, milk_28x28_width, milk_28x28_height, TFT_WHITE);
+            display.drawPng(milk_28x28, ~0u, 50, 28);
             normtxt(0, 10, "      + 1  milk      ");
             break;
           case 6:
             // Orange
-            display.drawPng(XXX, ~0u, 50, 28, orange_28x28_bits, orange_28x28_width, orange_28x28_height, TFT_WHITE);
+            display.drawPng(orange_28x28, ~0u, 50, 28);
             normtxt(0, 10, "     + 1  orange     ");
             break;
           case 7:
             // Replay + Double
-            display.drawPng(XXX, ~0u, 50, 28, dollar_28x28_bits, dollar_28x28_width, dollar_28x28_height, TFT_WHITE);
+            display.drawPng(dollar_28x28, ~0u, 50, 28);
             normtxt(0, 10, "Double score + Replay");
             break;
         }
@@ -882,7 +882,7 @@ void loop() {
         case 0:
           // Knock
           checkButton();
-          display.drawPng(XXX, ~0u, 50, 14, door_28x30_bits, door_28x30_width, door_28x30_height, TFT_WHITE);
+          display.drawPng(door_28x30, ~0u, 50, 14);
           smoltxt(35, 59, "Knock knock!");
           generalCounter += 1;
           if (generalCounter>4800) {
@@ -892,11 +892,11 @@ void loop() {
           break;
         case 1:
           // Hello
-          display.drawPng(XXX, ~0u, -24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_height, TFT_WHITE);
+          display.drawPng(cat_sitting_001_48x48, ~0u, -24, 13);
           if (randomVisit<1000) {
-            display.drawPng(XXX, ~0u, 96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
+            display.drawPng(sophie_28x26, ~0u, 96, 14);
           } else if (randomVisit > 3000) {
-            display.drawPng(XXX, ~0u, 96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+            display.drawPng(chichi_30x28, ~0u, 96, 14);
           }
           smoltxt(45, 59, "Hi friend!");
           generalCounter += 1;
@@ -907,25 +907,25 @@ void loop() {
           break;
         case 2:
           // Gift
-          display.drawPng(XXX, ~0u, -24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_height, TFT_WHITE);
+          display.drawPng(cat_sitting_001_48x48, ~0u, -24, 13);
           switch (randomVisit) {
             case 0 ... 499:
               smoltxt(45, 59, "I got matcha tea!");
-              display.drawPng(XXX, ~0u, 96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
+              display.drawPng(sophie_28x26, ~0u, 96, 14);
               break;
             case 500 ... 999:
               smoltxt(45, 59, "I got coco cake!");
-              display.drawPng(XXX, ~0u, 96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
+              display.drawPng(sophie_28x26, ~0u, 96, 14);
               break;
             case 3001 ... 3100:
               // Strawberry
               smoltxt(45, 59, "I am cooking");
-              display.drawPng(XXX, ~0u, 96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+              display.drawPng(chichi_30x28, ~0u, 96, 14);
               break;
             case 3101 ... 3136:
               // Cuddle
               smoltxt(45, 59, "I am sad");
-              display.drawPng(XXX, ~0u, 96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+              display.drawPng(chichi_30x28, ~0u, 96, 14);
               break;
           }
           generalCounter += 1;
@@ -936,31 +936,31 @@ void loop() {
           break;
         case 3:
           // Drink
-          display.drawPng(XXX, ~0u, -24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_height, TFT_WHITE);
+          display.drawPng(cat_sitting_001_48x48, ~0u, -24, 13);
           switch (randomVisit) {
             case 0 ... 999:
               smoltxt(45, 59, "Have some <3");
-              display.drawPng(XXX, ~0u, 96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
+              display.drawPng(sophie_28x26, ~0u, 96, 14);
               if (randomVisit<500) {
-                display.drawPng(XXX, ~0u, 49, 14, matcha_30x32_bits, matcha_30x32_width, matcha_30x32_height, TFT_WHITE);
+                display.drawPng(matcha_30x32, ~0u, 49, 14);
               } else if (randomVisit<1000){
-                display.drawPng(XXX, ~0u, 49, 14, coco_cake_28x32_bits, coco_cake_28x32_width, coco_cake_28x32_height, TFT_WHITE);
+                display.drawPng(coco_cake_28x32, ~0u, 49, 14);
               }
               break;
             case 3001 ... 3050:
               // Strawberry
               smoltxt(45, 59, "I need strawberries");
-              display.drawPng(XXX, ~0u, 96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+              display.drawPng(chichi_30x28, ~0u, 96, 14);
               break;
             case 3051 ... 3100:
               // Orange
               smoltxt(45, 59, "I need oranges");
-              display.drawPng(XXX, ~0u, 96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+              display.drawPng(chichi_30x28, ~0u, 96, 14);
               break;
             case 3101 ... 3136:
               // Cuddle
               smoltxt(45, 59, "I need to cuddle");
-              display.drawPng(XXX, ~0u, 96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+              display.drawPng(chichi_30x28, ~0u, 96, 14);
               break;
           }
           generalCounter += 1;
@@ -1003,9 +1003,9 @@ void loop() {
           switch (randomVisit) {
             case 0 ... 999:
               if (randomVisit<500) {
-                display.drawPng(XXX, ~0u, 49, 28, matcha_30x32_bits, matcha_30x32_width, matcha_30x32_height, TFT_WHITE);
+                display.drawPng(matcha_30x32, ~0u, 49, 28);
               } else {
-                display.drawPng(XXX, ~0u, 50, 28, coco_cake_28x32_bits, coco_cake_28x32_width, coco_cake_28x32_height, TFT_WHITE);
+                display.drawPng(coco_cake_28x32, ~0u, 50, 28);
               }
               M5.Lcd.print("        Yum !        ");
               break;
@@ -1013,18 +1013,18 @@ void loop() {
               // Strawberry
               smoltxt(45, 59, "Thank you <3");
               M5.Lcd.print("   - 1 Strawberry    ");
-              display.drawPng(XXX, ~0u, 49, 28, strawberry_28x28_bits, strawberry_28x28_width, strawberry_28x28_height, TFT_WHITE);
+              display.drawPng(strawberry_28x28, ~0u, 49, 28);
               break;
             case 3051 ... 3100:
               // Orange
               smoltxt(45, 59, "Thanks a lot!");
               M5.Lcd.print("     - 1 Orange      ");
-              display.drawPng(XXX, ~0u, 49, 28, orange_28x28_bits, orange_28x28_width, orange_28x28_height, TFT_WHITE);
+              display.drawPng(orange_28x28, ~0u, 49, 28);
               break;
             case 3101 ... 3136:
               // Cuddle
               M5.Lcd.print("  You hug ChiChi  ");
-              display.drawPng(XXX, ~0u, 40, 28, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_height, TFT_WHITE);
+              display.drawPng(cat_sitting_001_48x48, ~0u, 40, 28);
               break;
           }
           generalCounter += 1;
@@ -1035,14 +1035,14 @@ void loop() {
           break;
         case 5:
           // Everyone is happy
-          display.drawPng(XXX, ~0u, -24, 13, cat_sitting_001_48x48_bits, cat_sitting_001_48x48_width, cat_sitting_001_48x48_height, TFT_WHITE);
+          display.drawPng(cat_sitting_001_48x48, ~0u, -24, 13);
           switch (randomVisit) {
             case 0 ... 999:
-              display.drawPng(XXX, ~0u, 96, 14, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
+              display.drawPng(sophie_28x26, ~0u, 96, 14);
               smoltxt(45, 59, "That was yummy!");
               break;
             case 3001 ... 3136:
-              display.drawPng(XXX, ~0u, 96, 14, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+              display.drawPng(chichi_30x28, ~0u, 96, 14);
               smoltxt(45, 59, "Aww thanks <3");
               break;
           }
@@ -1086,7 +1086,7 @@ void loop() {
           M5.Lcd.setCursor(0, 10);
           M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
           M5.Lcd.drawLine(0, 18, 239, 18, WHITE);
-          display.drawPng(XXX, ~0u, 96, 28, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+          display.drawPng(chichi_30x28, ~0u, 96, 28);
           smoltxt(40, 59, "Maybe next time...");
           M5.Lcd.print("   You have none...  ");
           generalCounter += 1;
@@ -1114,16 +1114,16 @@ void loop() {
         }
         switch (randomFoodType) {
           case 0:
-            display.drawPng(XXX, ~0u, randomGameIconXPos, 28, koko_le_snail_26x22_bits, koko_le_snail_26x22_width, koko_le_snail_26x22_height, TFT_WHITE);
+            display.drawPng(koko_le_snail_26x22, ~0u, randomGameIconXPos, 28);
             break;
           case 1:
-            display.drawPng(XXX, ~0u, randomGameIconXPos, 28, sophie_28x26_bits, sophie_28x26_width, sophie_28x26_height, TFT_WHITE);
+            display.drawPng(sophie_28x26, ~0u, randomGameIconXPos, 28);
             break;
           case 2:
-            display.drawPng(XXX, ~0u, randomGameIconXPos, 28, chichi_30x28_bits, chichi_30x28_width, chichi_30x28_height, TFT_WHITE);
+            display.drawPng(chichi_30x28, ~0u, randomGameIconXPos, 28);
             break;
           case 3:
-            display.drawPng(XXX, ~0u, randomGameIconXPos, 28, ghost_28x28_bits, ghost_28x28_width, ghost_28x28_height, TFT_WHITE);
+            display.drawPng(ghost_28x28, ~0u, randomGameIconXPos, 28);
             break;
         }
         generalCounter += 1;
@@ -1138,12 +1138,12 @@ void loop() {
             for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_height, TFT_WHITE);
+                  display.drawPng(skull_11x11, ~0u, backgroundx, backgroundy);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_height, TFT_WHITE);
+                  display.drawPng(skull_11x11, ~0u, backgroundx, backgroundy);
                 }
               }
               delay(5);
@@ -1153,12 +1153,12 @@ void loop() {
             for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_height, TFT_WHITE);
+                  display.drawPng(heart_11x10, ~0u, backgroundx, backgroundy);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_height, TFT_WHITE);
+                  display.drawPng(heart_11x10, ~0u, backgroundx, backgroundy);
                 }
               }
               delay(5);
@@ -1172,7 +1172,7 @@ void loop() {
         }
       } else if (currentSequence == 2) {
         // Unhappy 2
-        display.drawPng(XXX, ~0u, 51, 28, cuss_28x28_bits, cuss_28x28_width, cuss_28x28_height, TFT_WHITE);
+        display.drawPng(cuss_28x28, ~0u, 51, 28);
         M5.Lcd.setCursor(0, 10);
         M5.Lcd.print("      No points      ");
         M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
@@ -1195,12 +1195,12 @@ void loop() {
             for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_height, TFT_WHITE);
+                  display.drawPng(heart_11x10, ~0u, backgroundx, backgroundy);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, heart_11x10_bits, heart_11x10_width, heart_11x10_height, TFT_WHITE);
+                  display.drawPng(heart_11x10, ~0u, backgroundx, backgroundy);
                 }
               }
               delay(5);
@@ -1210,12 +1210,12 @@ void loop() {
             for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
               for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_height, TFT_WHITE);
+                  display.drawPng(skull_11x11, ~0u, backgroundx, backgroundy);
                 }
               }
               for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
                 for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
-                  display.drawPng(XXX, ~0u, backgroundx, backgroundy, skull_11x11_bits, skull_11x11_width, skull_11x11_height, TFT_WHITE);
+                  display.drawPng(skull_11x11, ~0u, backgroundx, backgroundy);
                 }
               }
               delay(5);
@@ -1229,7 +1229,7 @@ void loop() {
         }
       } else if (currentSequence == 4) {
         // Happy 2
-        display.drawPng(XXX, ~0u, 51, 28, kiss_28x28_bits, kiss_28x28_width, kiss_28x28_height, TFT_WHITE);
+        display.drawPng(kiss_28x28, ~0u, 51, 28);
         M5.Lcd.setCursor(0, 10);
         M5.Lcd.print("    + 1000 points    ");
         M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
@@ -1266,27 +1266,27 @@ void loop() {
         case 0:
           // Pizza
           M5.Lcd.print("  > Feed  TiMiNoo <  ");
-          display.drawPng(XXX, ~0u, 51, 28, pizza_26x28_bits, pizza_26x28_width, pizza_26x28_height, TFT_WHITE);
+          display.drawPng(pizza_26x28, ~0u, 51, 28);
           break;
         case 1:
           // Gamepad
           M5.Lcd.print("> Play with TiMiNoo <");
-          display.drawPng(XXX, ~0u, 48, 28, play_32x20_bits, play_32x20_width, play_32x20_height, TFT_WHITE);
+          display.drawPng(play_32x20, ~0u, 48, 28);
           break;
         case 2:
           // Bubbles
           M5.Lcd.print("  > Wash  TiMiNoo <  ");
-          display.drawPng(XXX, ~0u, 49, 28, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_height, TFT_WHITE);
+          display.drawPng(bubbles_30x30, ~0u, 49, 28);
           break;
         case 3:
           // Heart
           M5.Lcd.print(" > Cuddle  TiMiNoo < ");
-          display.drawPng(XXX, ~0u, 52, 28, cuddle_24x24_bits, cuddle_24x24_width, cuddle_24x24_height, TFT_WHITE);
+          display.drawPng(cuddle_24x24, ~0u, 52, 28);
           break;
         case 4:
           // Book
           M5.Lcd.print("  > Train TiMiNoo <  ");
-          display.drawPng(XXX, ~0u, 51, 28, study_26x28_bits, study_26x28_width, study_26x28_height, TFT_WHITE);
+          display.drawPng(study_26x28, ~0u, 51, 28);
           break;
       }
       M5.Lcd.drawLine(0, 8, 239, 8, WHITE);
@@ -1305,27 +1305,27 @@ void loop() {
         case 0:
           M5.Lcd.print("|||     Hunger    |||");
           gamePick = catHunger;
-          display.drawPng(XXX, ~0u, 4, 28, pizza_26x28_bits, pizza_26x28_width, pizza_26x28_height, TFT_WHITE);
+          display.drawPng(pizza_26x28, ~0u, 4, 28);
           break;
         case 1:
           M5.Lcd.print("|||     Hygiene   |||");
           gamePick = catHygiene;
-          display.drawPng(XXX, ~0u, 4, 28, bubbles_30x30_bits, bubbles_30x30_width, bubbles_30x30_height, TFT_WHITE);
+          display.drawPng(bubbles_30x30, ~0u, 4, 28);
           break;
         case 2:
           M5.Lcd.print("|||    Education  |||");
           gamePick = catEducation;
-          display.drawPng(XXX, ~0u, 4, 28, study_26x28_bits, study_26x28_width, study_26x28_height, TFT_WHITE);
+          display.drawPng(study_26x28, ~0u, 4, 28);
           break;
         case 3:
           M5.Lcd.print("|||     Morale    |||");
           gamePick = catMorale;
-          display.drawPng(XXX, ~0u, 4, 30, cuddle_24x24_bits, cuddle_24x24_width, cuddle_24x24_height, TFT_WHITE);
+          display.drawPng(cuddle_24x24, ~0u, 4, 30);
           break;
         case 4:
           M5.Lcd.print("|||      Fun      |||");
           gamePick = catEntertainment;
-          display.drawPng(XXX, ~0u, 4, 32, play_32x20_bits, play_32x20_width, play_32x20_height, TFT_WHITE);
+          display.drawPng(play_32x20, ~0u, 4, 32);
           break;
       }
       M5.Lcd.setCursor(64, 40);
@@ -1354,7 +1354,7 @@ void loop() {
       break;
     case 99:
       // Show version
-      display.drawPng(XXX, ~0u, 56, 35, timinoo_logo_128x64_bits, timinoo_logo_128x64_width, timinoo_logo_128x64_height, TFT_WHITE);
+      display.drawPng(timinoo_logo_128x64, ~0u, 56, 35);
       M5.Lcd.setCursor(0, 0);
       M5.Lcd.print("\n\n\n\n\n\n\n       v1.2.13      ");
       generalCounter += 1;
